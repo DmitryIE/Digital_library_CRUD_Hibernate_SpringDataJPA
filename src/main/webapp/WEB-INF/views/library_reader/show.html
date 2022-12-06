@@ -1,0 +1,39 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Читатель</title>
+</head>
+<body>
+
+<p th:text="${'Идентификационный номер: ' + libraryReader.getId()}">VALUE</p>
+<b>
+  <p th:text="${libraryReader.getName() + ', ' + libraryReader.getBirthYear()}">VALUE</p>
+</b>
+
+<div th:if="${listOfBooks.isEmpty()}">
+  <p th:text="${'Читатель пока не взял ни одной книги'}">Value</p>
+</div>
+
+<div th:unless="${listOfBooks.isEmpty()}">
+  <hr/>
+  <b>
+  <p th:text="${'Взятые книги:'}">Value</p>
+  </b>
+
+  <tr th:each="element: ${listOfBooks.entrySet()}">
+    <p style="color:red" th:if="${element.value==true}" th:text="${element.key.getTitle() + ', ' + element.key.getAuthor() + ', ' + element.key.getYear()}">Value</p>
+    <p th:unless="${element.value==true}" th:text="${element.key.getTitle() + ', ' + element.key.getAuthor() + ', ' + element.key.getYear()}">Value</p>
+  </tr>
+
+</div>
+
+<hr/>
+
+<form th:method="GET" th:action="@{/library_reader/{id}/edit(id=${libraryReader.getId()})}">
+  <input type="submit" value="Редактировать"/>
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/library_reader/{id}(id=${libraryReader.getId()})}">
+  <input type="submit" value="Удалить"/>
+</form>
+</body>
+</html>

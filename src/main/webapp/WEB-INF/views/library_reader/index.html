@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список читателей</title>
+</head>
+<body>
+
+<br/>
+
+<div th:each="element : ${libraryReader}">
+    <a th:href="@{/library_reader/{id}(id=${element.getId()})}"
+       th:text="${element.getName() + ', ' + element.getBirthYear()}">user</a>
+</div>
+
+<br/>
+<hr/>
+
+<a href="/library_reader/new">Добавить читателя</a>
+
+</body>
+</html>
