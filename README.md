@@ -1,4 +1,4 @@
-# Учебный проект "Цифровой учет книг в библиотеке"
+# Проект "Цифровой учет книг в библиотеке"
 (стек применяемых технологий: *Spring, Spring Data JPA, PostgreSQL, Thymeleaf, Hibernate*)
 
 *данный проект является продолжением реализации [предыдущего](https://github.com/DmitryIE/Digital_library_Spring_CRUD) с использованием Hibernate и Spring Data JPA и добавлением нового функционала*
